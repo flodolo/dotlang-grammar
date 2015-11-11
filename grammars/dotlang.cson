@@ -16,14 +16,29 @@
     'include': '#reference'
   }
   {
-    'include': '#python_var'
+    'include': '#identical_strings'
+  }
+  {
+    'include': '#python_vars'
   }
 ]
 'repository':
   'comments':
-    'begin': '^#'
+    'begin': '#'
     'end': '$'
     'name': 'comment.line.number-sign.dotlang'
+  'identical_strings':
+    'captures':
+      '1':
+        'name': 'constant.character.dotlang'
+      '2':
+        'name': 'keyword.other.dotlang'
+    'match': '(?i)(^[^#;].*)(\\{ok\\})'
+    'patterns': [
+      {
+        'include': '#python_vars'
+      }
+    ]
   'metatags':
     'captures':
       '1':
@@ -31,18 +46,18 @@
       '2':
         'name': 'variable.other.dotlang'
     'match': '(^##.*?:)(.*$)'
-  'python_var':
+  'python_vars':
     'captures':
       '1':
         'name': 'variable.other.dotlang'
     'match': '(%\\([a-z0-9._-]*\\)s|%s)'
   'reference':
-    'begin': '^;'
+    'begin': ';'
     'end': '$'
     'name': 'string.unquoted.line.dotlang'
     'patterns': [
       {
-        'include': '#python_var'
+        'include': '#python_vars'
       }
     ]
   'tags':
