@@ -1,0 +1,57 @@
+'fileTypes': [
+  'lang'
+]
+'name': 'DotLang'
+'patterns': [
+  {
+    'include': '#metatags'
+  }
+  {
+    'include': '#tags'
+  }
+  {
+    'include': '#comments'
+  }
+  {
+    'include': '#reference'
+  }
+  {
+    'include': '#python_var'
+  }
+]
+'repository':
+  'comments':
+    'begin': '^#'
+    'end': '$'
+    'name': 'comment.line.number-sign.dotlang'
+  'metatags':
+    'captures':
+      '1':
+        'name': 'keyword.other.dotlang'
+      '2':
+        'name': 'variable.other.dotlang'
+    'match': '(^##.*?:)(.*$)'
+  'python_var':
+    'captures':
+      '1':
+        'name': 'variable.other.dotlang'
+    'match': '(%\\([a-z0-9._-]*\\)s|%s)'
+  'reference':
+    'begin': '^;'
+    'end': '$'
+    'name': 'string.unquoted.line.dotlang'
+    'patterns': [
+      {
+        'include': '#python_var'
+      }
+    ]
+  'tags':
+    'captures':
+      '1':
+        'name': 'keyword.other.dotlang'
+      '2':
+        'name': 'variable.other.dotlang'
+      '3':
+        'name': 'keyword.other.dotlang'
+    'match': '(^##)(.*)(##$)'
+'scopeName': 'text.dotlang'
