@@ -24,7 +24,7 @@
 ]
 'repository':
   'comments':
-    'begin': '#'
+    'begin': '^#'
     'end': '$'
     'name': 'comment.line.number-sign.dotlang'
   'identical_strings':
@@ -52,7 +52,7 @@
         'name': 'variable.other.dotlang'
     'match': '(%\\([a-z0-9._-]*\\)s|%s)'
   'reference':
-    'begin': ';'
+    'begin': '^;'
     'end': '$'
     'name': 'string.unquoted.line.dotlang'
     'patterns': [
